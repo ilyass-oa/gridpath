@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gridpath"
+version = "0.2.0"
+description = "DFS, BFS and A* for cooperative grid-world puzzles."
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = ["laser-learning-environment==2.6.1"]
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.2", "ruff==0.14.0", "build==1.3.0"]
+
+[project.scripts]
+gridpath = "gridpath.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
